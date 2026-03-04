@@ -71,7 +71,10 @@ def main():
     options, args = __filter_args(args)
     # Parse input command
     if cmd == "random":
-        print(random_joke(""))
+        if len(args) > 0:
+            print(random_joke(args[0]))
+        else:
+            print(random_joke(""))
     else:
         print("Help: usage of integers.py")
         for command in help:
