@@ -1,4 +1,4 @@
-# Program written by Antonin CALLARD, ENS Lyon, France
+# Program written by Antonin CALLARD, ENS Lyon, France
 
 # A list of very good Sans jokes and puns from Undertale and https://steamcommunity.com/sharedfiles/filedetails/?id=537274165
 list_jokes = [
@@ -51,8 +51,9 @@ import random
 """
     random_joke(): return a random joke from the list of jokes "list_jokes".
 """
-def random_joke():
-    print(random.choice(list_jokes))
+def random_joke(k):
+    for i in range(k):     
+	print(random.choice(list_jokes))
 
 
 ## Interface
@@ -61,7 +62,7 @@ import sys
 help = {
     "random" : "print a random joke",
     "random <regex>" : "print a random joke matching <regex>",
-    "random -n<i> <regex>" : "print i random jokes matching <regex>"
++    "random -n<i> <regex>" : "print i random jokes matching <regex>"
 }
 
 def main():
@@ -71,7 +72,7 @@ def main():
     options, args = __filter_args(args)
     # Parse input command
     if cmd == "random":
-        print(random_joke())
+        random_joke(1)
     else:
         print("Help: usage of integers.py")
         for command in help:
