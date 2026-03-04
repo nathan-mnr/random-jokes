@@ -52,7 +52,7 @@ import random
     random_joke(): return a random joke from the list of jokes "list_jokes".
 """
 def random_joke():
-    pass
+    print(random.choice(list_jokes))
 
 
 ## Interface
