@@ -62,7 +62,7 @@ import sys
 help = {
     "random" : "print a random joke",
     "random <regex>" : "print a random joke matching <regex>",
-+    "random -n<i> <regex>" : "print i random jokes matching <regex>"
+    "random -n<i> <regex>" : "print i random jokes matching <regex>"
 }
 
 def main():
