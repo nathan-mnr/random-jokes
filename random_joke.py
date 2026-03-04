@@ -42,18 +42,19 @@ import re
 def __filter_joke(regex):
     res = []
     for joke in list_jokes:
-        pass
-        # if re.match(regex, joke):
-        #   res.append(joke)
+        if re.match(regex, joke):
+            res.append(joke)
     return res
 
 import random
 """
     random_joke(): return a random joke from the list of jokes "list_jokes".
 """
-def random_joke(k):
-    for i in range(k):     
-	    print(random.choice(list_jokes))
+
+def random_joke(regex):
+    jokes = __filter_joke(regex)
+    return random.choice(jokes)
+
 
 
 ## Interface
@@ -84,6 +85,10 @@ def main():
 
         random_joke(k)
 
+        if len(args) > 0:
+            print(random_joke(args[0]))
+        else:
+            print(random_joke(""))
     else:
         print("Help: usage of integers.py")
         for command in help:
