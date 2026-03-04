@@ -53,7 +53,7 @@ import random
 """
 def random_joke(k):
     for i in range(k):     
-	print(random.choice(list_jokes))
+	    print(random.choice(list_jokes))
 
 
 ## Interface
@@ -67,18 +67,31 @@ help = {
 
 def main():
     cmd, *args = sys.argv[1:]
-    # Get the list of options (i.e. -[...]) into options
-    # and the list of real arguments into args
     options, args = __filter_args(args)
-    # Parse input command
+
     if cmd == "random":
-        random_joke(1)
+        # Valeur par défaut
+        k = 1
+
+        # Recherche d'une option -n<i>
+        for opt in options:
+            if opt.startswith("-n"):
+                try:
+                    k = int(opt[2:])   # extrait le nombre après -n
+                except ValueError:
+                    print("Erreur : -n doit être suivi d'un entier.")
+                    exit()
+
+        random_joke(k)
+
     else:
         print("Help: usage of integers.py")
         for command in help:
             print("  {} : {}".format(command, help[command]))
-    # Exit program
+
     exit()
+
 
 if __name__ == "__main__":
     main()
+
